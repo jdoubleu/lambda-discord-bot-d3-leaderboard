@@ -1,0 +1,205 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://eu.api.blizzard.com/data/d3/season/16?namespace=2-6-EU"
+    }
+  },
+  "leaderboard": [
+    {
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/achievement-points?namespace=2-6-EU"
+      }
+    },
+    {
+      "team_size": 1,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-hardcore-barbarian?namespace=2-6-EU"
+      },
+      "hardcore": true,
+      "hero_class_string": "barbarian"
+    },
+    {
+      "team_size": 1,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-barbarian?namespace=2-6-EU"
+      },
+      "hardcore": true,
+      "hero_class_string": "barbarian"
+    },
+    {
+      "team_size": 1,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-hardcore-crusader?namespace=2-6-EU"
+      },
+      "hero_class_string": "crusader"
+    },
+    {
+      "team_size": 1,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-crusader?namespace=2-6-EU"
+      },
+      "hero_class_string": "crusader"
+    },
+    {
+      "team_size": 1,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-hardcore-dh?namespace=2-6-EU"
+      },
+      "hardcore": true,
+      "hero_class_string": "dh"
+    },
+    {
+      "team_size": 1,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-dh?namespace=2-6-EU"
+      },
+      "hardcore": true,
+      "hero_class_string": "dh"
+    },
+    {
+      "team_size": 1,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-hardcore-monk?namespace=2-6-EU"
+      },
+      "hero_class_string": "monk"
+    },
+    {
+      "team_size": 1,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-monk?namespace=2-6-EU"
+      },
+      "hero_class_string": "monk"
+    },
+    {
+      "team_size": 1,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-hardcore-wd?namespace=2-6-EU"
+      },
+      "hero_class_string": "wd"
+    },
+    {
+      "team_size": 1,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-wd?namespace=2-6-EU"
+      },
+      "hero_class_string": "wd"
+    },
+    {
+      "team_size": 1,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-hardcore-wizard?namespace=2-6-EU"
+      },
+      "hero_class_string": "wizard"
+    },
+    {
+      "team_size": 1,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-wizard?namespace=2-6-EU"
+      },
+      "hero_class_string": "wizard"
+    },
+    {
+      "team_size": 1,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-hardcore-necromancer?namespace=2-6-EU"
+      },
+      "hero_class_string": "necromancer"
+    },
+    {
+      "team_size": 1,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-necromancer?namespace=2-6-EU"
+      },
+      "hero_class_string": "necromancer"
+    },
+    {
+      "team_size": 2,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-hardcore-team-2?namespace=2-6-EU"
+      }
+    },
+    {
+      "team_size": 2,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-team-2?namespace=2-6-EU"
+      }
+    },
+    {
+      "team_size": 3,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-hardcore-team-3?namespace=2-6-EU"
+      }
+    },
+    {
+      "team_size": 3,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-team-3?namespace=2-6-EU"
+      }
+    },
+    {
+      "team_size": 4,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-hardcore-team-4?namespace=2-6-EU"
+      }
+    },
+    {
+      "team_size": 4,
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-team-4?namespace=2-6-EU"
+      }
+    },
+    {
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/74987244415369?namespace=2-6-EU"
+      }
+    },
+    {
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/74987246496081?namespace=2-6-EU"
+      }
+    },
+    {
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/74987246929277?namespace=2-6-EU"
+      }
+    },
+    {
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/74987248177824?namespace=2-6-EU"
+      }
+    },
+    {
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/74987248831502?namespace=2-6-EU"
+      }
+    },
+    {
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/74987249351172?namespace=2-6-EU"
+      }
+    },
+    {
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/74987254029567?namespace=2-6-EU"
+      }
+    },
+    {
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/74987254415567?namespace=2-6-EU"
+      }
+    },
+    {
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/74987255660017?namespace=2-6-EU"
+      }
+    },
+    {
+      "ladder": {
+        "href": "https://eu.api.blizzard.com/data/d3/season/16/leaderboard/74987259385858?namespace=2-6-EU"
+      }
+    }
+  ],
+  "season_id": 16,
+  "last_update_time": "Sun, 27 Jan 2019 20:00:00 UTC",
+  "generated_by": "AMS1A-D3-PURPLE-JOB001-01 2.6.4 branches/2_6_4-branches/2_6_4"
+}
