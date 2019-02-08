@@ -6,44 +6,89 @@ const url = require('url')
  * @see https://develop.battle.net/documentation/api-reference/diablo-3-game-data-api
  */
 class BattlenetAPIClient {
-    constructor(access_token) {
-        this.access_token = access_token
+    constructor(client_id, client_secret, region = 'eu') {
+        this.client_id = client_id
+        this.client_secret = client_secret
+        this.region = region
     }
 
-    _buildLeaderboardUrl(rift) {
-        return `https://eu.api.blizzard.com/data/d3/season/16/leaderboard/rift-${rift}`
+    async obtainAccessToken() {
+        // TODO: cache access token for its lifetime (e.g. in a persisten databse)
+        if (this.access_token) {
+            return this.access_token
+        }
+
+        const res = await this._doRequest(
+            'POST',
+            '/oauth/token',
+            {
+                'Content-type': 'application/x-www-form-urlencoded'
+            },
+            'grant_type=client_credentials',
+            `${this.client_id}:${this.client_secret}`,
+            `${this.region}.battle.net`
+        )
+
+        const { access_token } = JSON.parse(res.data)
+
+        return this.access_token = access_token
     }
 
     async fetchLeaderboard(rift) {
-        return this._request(
-            this._buildLeaderboardUrl(rift)
+        const access_token = await this.obtainAccessToken()
+
+        const res = await this._doRequest(
+            'GET',
+            `/data/d3/season/16/leaderboard/rift-${rift}`,
+            {
+                'Authorization': `Bearer ${access_token}`
+            }
         )
+
+        if (res.status !== 200) {
+            throw new Error(
+                `Got invalid reponse when fetching leadboard.
+                Expected response code 200, got ${res.status}.
+                Data: ${res.data}`
+            )
+        }
+
+        return JSON.parse(res.data)
     }
 
-    async _request(baseUrl) {
-        let url = baseUrl
-
-        url += '?access_token=' + this.access_token
+    async _doRequest(method, url, headers = {}, data = null, auth = null, hostname = null) {
+        const options = {
+            hostname: hostname || `${this.region}.api.blizzard.com`,
+            path: url,
+            method,
+            headers,
+            auth
+        }
 
         return new Promise((resolve, reject) => {
-            https.get(url, res => {
+            const req = https.request(options, res => {
                 res.setEncoding('utf8')
+
                 let rawData = ''
                 res.on('data', chunk => rawData += chunk)
                 res.on('end', () => {
-                    if (res.statusCode !== 200) {
-                        const errMsg = `Error from Battle.net API!
-                        Details (status code: ${res.statusCode}:
-                        ${rawData}`
-
-                        reject(new Error(errMsg))
-                    } else {
-                        resolve(rawData)
-                    }
+                    resolve({
+                        data: rawData,
+                        headers: res.headers,
+                        status: res.statusCode
+                    })
                 })
             })
-        }).then(raw => {
-            return JSON.parse(raw)
+
+            req.on('error', e => {
+                reject(e)
+            })
+
+            if (method === 'POST' && data) {
+                req.write(data)
+            }
+
+            req.end()
         })
     }
 }
@@ -152,7 +197,11 @@ class DiscordBot {
 }
 
 async function trackLeaderboard(rifts) {
-    const apiClient = new BattlenetAPIClient(process.env.BATTLENET_API_ACCESS_TOKEN)
+    const apiClient = new BattlenetAPIClient(
+        process.env.BATTLENET_CLIENT_ID,
+        process.env.BATTLENET_CLIENT_SECRET,
+        process.env.BATTLENET_REGION || 'eu'
+    )
 
     let msg = 'Leaderboard stats from ' + new Date().toUTCString()
     for (let rift in rifts) {
