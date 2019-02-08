@@ -1,5 +1,6 @@
 # AWS Lambda Diablo III Discord Bot
-A AWS Lambda powered discord bot which tracks players on the leaderboard.
+A AWS Lambda powered Discord bot which tracks players on the leaderboard.
+With [AWS CloudWatch](https://aws.amazon.com/cloudwatch/) this function can be configured to repeatedly (e.g. every 4 hours) fetch rift leaderboards and track your "Heroes" positions. 
 
 E.g.:
 ```
@@ -9,6 +10,8 @@ Leaderboard for rift barbarian:
 * Anon#1234 at rank 140
 * Anon#1244 not in list
 ```
+
+**NOTE:** At the moment the leadboard is only searched by players' [BattleTags](https://eu.battle.net/support/en/article/75767). However it is possible to have multiple "Heros" in one rift leaderboard with the same [BattleTags](https://eu.battle.net/support/en/article/75767). This would cause only the first "Hero" to be found.
 
 ## Costs
 Since this function requests the [Battle.net API](https://develop.battle.net/documentation) the runtime highly depends on the response time of the API.
