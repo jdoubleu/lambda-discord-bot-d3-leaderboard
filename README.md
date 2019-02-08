@@ -58,3 +58,4 @@ Monitoring stats using 1 leaderboard for 1 player:
       }
     }
     ```
+    **WARNING:** Please note that [Battle.net API Clients](https://develop.battle.net/documentation/guides/getting-started) are limited to 36,000 requests per hour at a rate of 100 requests per second (see [Throttling](https://develop.battle.net/documentation/guides/getting-started)).
