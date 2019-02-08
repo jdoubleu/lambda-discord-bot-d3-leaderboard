@@ -59,3 +59,37 @@ Monitoring stats using 1 leaderboard for 1 player:
     }
     ```
     **WARNING:** Please note that [Battle.net API Clients](https://develop.battle.net/documentation/guides/getting-started) are limited to 36,000 requests per hour at a rate of 100 requests per second (see [Throttling](https://develop.battle.net/documentation/guides/getting-started)).
+
+## API Documentation
+### Environemnt variables
+The lambda function uses the following environment variables which can be set in the ["Environment variables" section](https://docs.aws.amazon.com/lambda/latest/dg/env_variables.html):
+* `BATTLENET_CLIENT_ID` Battle.net API Client ID
+* `BATTLENET_CLIENT_SECRET` Battle.net API Client ID
+* `BATTLENET_REGION` Battle.net region (default: `eu`)
+* `DISCORD_BOT_WEBHOOK_URL` The Discord Webhook URL to post leaderboard messages to
+* `DISCORD_BOT_NAME` Name of the Discord bot, displayed in the channel (default: `Leaderboard BOT`)
+
+### Input
+The lambda function accepts the following input from an event payload:
+```typescript
+interface payload {
+    rifts: { [riftName: string]: string[] }
+}
+```
+
+For each `riftName` all given player [BattleTags](https://eu.battle.net/support/en/article/75767) will be searched in the rift leaderboard.
+
+E.g:
+```json
+{
+  "rifts": {
+    "barbarian": [
+      "Anon#1234",
+      "Anon#4321"
+    ],
+    "wizard": [
+      "Anon#1237"
+    ]
+  }
+}
+```
