@@ -34,12 +34,12 @@ class BattlenetAPIClient {
         return this.access_token = access_token
     }
 
-    async fetchLeaderboard(rift) {
+    async fetchLeaderboard(season, rift) {
         const access_token = await this.obtainAccessToken()
 
         const res = await this._doRequest(
             'GET',
-            `/data/d3/season/16/leaderboard/rift-${rift}`,
+            `/data/d3/season/${season}/leaderboard/rift-${rift}`,
             {
                 'Authorization': `Bearer ${access_token}`
             }
@@ -205,7 +205,7 @@ async function trackLeaderboard(rifts) {
 
     let msg = 'Leaderboard stats from ' + new Date().toUTCString()
     for (let rift in rifts) {
-        let { row } = await apiClient.fetchLeaderboard(rift)
+        let { row } = await apiClient.fetchLeaderboard(process.env.BATTLENET_SEASON || 16, rift)
         let playerStats = findPlayersInLeaderboard(row, rifts[rift])
 
         msg += '\n\n' + formatMessage(rift, playerStats)

@@ -69,6 +69,7 @@ The lambda function uses the following environment variables which can be set in
 * `BATTLENET_CLIENT_ID` Battle.net API Client ID
 * `BATTLENET_CLIENT_SECRET` Battle.net API Client ID
 * `BATTLENET_REGION` Battle.net region (default: `eu`)
+* `BATTLENET_SEASON` Current season to track (default: `16`)
 * `DISCORD_BOT_WEBHOOK_URL` The Discord Webhook URL to post leaderboard messages to
 * `DISCORD_BOT_NAME` Name of the Discord bot, displayed in the channel (default: `Leaderboard BOT`)
 
